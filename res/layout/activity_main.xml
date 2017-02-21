@@ -8,9 +8,42 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.database_sql.MainActivity" >
 
-    <TextView
+    <EditText
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:ems="10"
+        android:text="Your Name" />
+
+    <EditText
+        android:id="@+id/num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/name"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:text="Contact Number" />
+
+    <Button
+        android:id="@+id/vbt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sbt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="View Contact" />
+
+    <Button
+        android:id="@+id/sbt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/vbt"
+        android:layout_below="@+id/num"
+        android:layout_marginTop="27dp"
+        android:text="Save Contact" />
 
 </RelativeLayout>
