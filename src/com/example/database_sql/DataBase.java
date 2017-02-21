@@ -1,8 +1,8 @@
 package com.example.database_sql;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DataBase extends SQLiteOpenHelper{
@@ -38,8 +38,22 @@ public class DataBase extends SQLiteOpenHelper{
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldV, int newV) {
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_CONTACTS);
+		 
+        // Create tables again
+        onCreate(db);
 		// TODO Auto-generated method stub
 		
 	}
-
+	void addContact(Contact contact) {
+        SQLiteDatabase db = this.getWritableDatabase();
+ 
+        ContentValues values = new ContentValues();
+        values.put(KEY_NAME, contact.getName()); // Contact Name
+        values.put(KEY_PH_NO, contact.getPhoneNumber()); // Contact Phone
+ 
+        // Inserting Row
+        db.insert(TABLE_CONTACTS, null, values);
+        db.close(); // Closing database connection
+    }
 }
